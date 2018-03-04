@@ -13,13 +13,13 @@ class Weather extends Component {
 
   fetchWeather(lat, lon) {
     const basePath = 'http://api.openweathermap.org/data/2.5/weather?'
-    const apikey = '13f61f65ddd6dba6106c669602a73771'
+    const apikey = 'yourapikeyhere'
     const units = 'imperial'
     const path = `${basePath}lat=${lat}&lon=${lon}&appid=${apikey}&&units=${units}`
     const options = { mode: 'no-cors' }
 
     // The DarkSky API doesn't allow CORS requests
-    // fetch('https://api.darksky.net/forecast/768e23ad0120d9dc9708dadcd7506083/37.8267,-122.4233', options)
+    // fetch('https://api.darksky.net/forecast/yourdarkskyapihere/37.8267,-122.4233', options)
     fetch(path)
     .then(res => res.json())
     .then(weather => this.setState({ weather }))
@@ -33,7 +33,7 @@ class Weather extends Component {
     // https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe/43881141
 
     // Use a proxy to skirt CORS issue
-    // const darksky = `https://api.darksky.net/forecast/768e23ad0120d9dc9708dadcd7506083/${lat},${lon}`
+    // const darksky = `https://api.darksky.net/forecast/yourdarkskyapihere/${lat},${lon}`
     // const proxyurl = "https://cors-anywhere.herokuapp.com/";
     // const url = "https://example.com"; // site that doesn’t send Access-Control-*
     // fetch(proxyurl + darksky) // https://cors-anywhere.herokuapp.com/https://example.com
